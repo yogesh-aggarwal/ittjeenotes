@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ittjeenotes/Widgets/UserIcon.dart';
 
 class HorizontalSpacer extends StatelessWidget {
   @override
@@ -29,18 +29,7 @@ class SettingsActivity extends StatelessWidget {
                     style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800),
                   ),
                 ),
-                Container(
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(30),
-                    onTap: () {},
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      child: SvgPicture.asset("assets/icons/user.svg",
-                          width: 45, height: 45),
-                    ),
-                  ),
-                ),
+                UserIcon(),
               ],
             ),
           ),
