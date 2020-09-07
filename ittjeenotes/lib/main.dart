@@ -32,8 +32,8 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
-  int _currentPageIndex = 4;
-  PageController _pageController = PageController(initialPage: 4);
+  int _currentPageIndex = 3;
+  PageController _pageController = PageController(initialPage: 3);
 
   @override
   Widget build(BuildContext context) {
