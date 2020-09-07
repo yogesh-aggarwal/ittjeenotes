@@ -19,7 +19,7 @@ class SubjectCard extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
-      margin: EdgeInsets.symmetric(vertical: 15, horizontal: 5),
+      margin: EdgeInsets.symmetric(vertical: 15, horizontal: 0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
