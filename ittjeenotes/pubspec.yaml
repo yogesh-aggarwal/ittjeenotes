@@ -1,0 +1,29 @@
+name: ittjeenotes
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.3
+  flutter_svg: 0.18.1
+  bottom_navy_bar: 5.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+   uses-material-design: true
+   assets:
+     - assets/icons/
+   fonts:
+     - family: Poppins
+       fonts:
+         - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+     - family: Roboto Slab
+       fonts:
+         - asset: assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf

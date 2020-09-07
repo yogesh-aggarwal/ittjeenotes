@@ -1,0 +1,21 @@
+====================================================================================================
+About section:
+	1) Profile image
+	2) Link to the video
+	3) Name
+	4) Short bio (3 lines)
+	5) State
+	6) Time taken
+	7) Price
+====================================================================================================
+Conditions:
+	a) Card based UI
+	b) 40s break
+	c) Every exercise, different music
+====================================================================================================
+Features:
+	a) Two modes (ask):
+		-> Random: Choose any 5 random exercise
+		-> Day-wise: Whole week is planned, get exercises day wise. (user cannot change)
+	b) Music indication
+====================================================================================================
