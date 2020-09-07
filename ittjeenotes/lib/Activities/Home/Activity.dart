@@ -38,7 +38,11 @@ class HomeActivity extends StatelessWidget {
           ),
           Quote(),
           Container(
-            child: Text("Hello World!"),
+            margin: EdgeInsets.symmetric(vertical: 10),
+            child: Text(
+              "Continue Where You Left Off",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
           )
         ],
       ),
