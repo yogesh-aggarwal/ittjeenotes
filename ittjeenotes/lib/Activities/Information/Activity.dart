@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ittjeenotes/Activities/Settings/ToolsService.dart';
 import 'package:ittjeenotes/Widgets/UserIcon.dart';
 
-class ResourcesActivity extends StatelessWidget {
+class InformationActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -30,31 +30,6 @@ class ResourcesActivity extends StatelessWidget {
               ),
             ),
             Container(margin: EdgeInsets.symmetric(vertical: 5)),
-            Text(
-              "Study Resources",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            Container(margin: EdgeInsets.symmetric(vertical: 5)),
-            ListTile(
-              title: Text("JEE Mains"),
-              leading: ClipRRect(
-                borderRadius: BorderRadius.circular(50),
-                child: Image.asset("assets/icons/jeeMainLogo.jpg", width: 30),
-              ),
-              contentPadding: EdgeInsets.all(0),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text("JEE Advanced"),
-              leading: ClipRRect(
-                borderRadius: BorderRadius.circular(50),
-                child:
-                    Image.asset("assets/icons/jeeAdvancedLogo.jpg", width: 35),
-              ),
-              contentPadding: EdgeInsets.all(0),
-              onTap: () {},
-            ),
-            Container(margin: EdgeInsets.symmetric(vertical: 10)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,

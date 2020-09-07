@@ -1,9 +1,9 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ittjeenotes/Activities/Home/Activity.dart';
-import 'package:ittjeenotes/Activities/Notes/Activity.dart';
+import 'package:ittjeenotes/Activities/Information/Activity.dart';
+import 'package:ittjeenotes/Activities/Study/Activity.dart';
 import 'package:ittjeenotes/Activities/Practice/Activity.dart';
-import 'package:ittjeenotes/Activities/Resources/Activity.dart';
 import 'package:ittjeenotes/Activities/Settings/Activity.dart';
 import 'package:ittjeenotes/Services/Constants.dart';
 
@@ -47,10 +47,10 @@ class _MainState extends State<Main> {
             });
           },
           children: [
-            NotesActivity(),
+            StudyActivity(),
             PracticeActivity(),
             HomeActivity(),
-            ResourcesActivity(),
+            InformationActivity(),
             SettingsActivity(),
           ],
         ),
@@ -68,7 +68,7 @@ class _MainState extends State<Main> {
         items: [
           BottomNavyBarItem(
             icon: Icon(Icons.book),
-            title: Text("Notes"),
+            title: Text("Study"),
             activeColor: Data.getBottomNavbarItemActiveColor(context),
             textAlign: TextAlign.center,
             inactiveColor: Data.bottomNavbarItemInactiveColor,
@@ -89,7 +89,7 @@ class _MainState extends State<Main> {
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.info),
-            title: Text("Resources"),
+            title: Text("Information"),
             activeColor: Data.getBottomNavbarItemActiveColor(context),
             textAlign: TextAlign.center,
             inactiveColor: Data.bottomNavbarItemInactiveColor,

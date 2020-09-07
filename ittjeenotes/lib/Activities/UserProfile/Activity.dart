@@ -6,7 +6,7 @@ class UserProfileActivity extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+          padding: EdgeInsets.symmetric(vertical: 25, horizontal: 25),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
