@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:ittjeenotes/Widgets/UserIcon.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class HorizontalSpacer extends StatelessWidget {
   @override
@@ -8,6 +9,45 @@ class HorizontalSpacer extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 8),
     );
   }
+}
+
+void showBottomModalSheet(BuildContext context, Widget widget) {
+  showMaterialModalBottomSheet(
+    context: context,
+    builder: (context, scrollController) {
+      return Container(
+        padding: EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+        child: widget,
+      );
+    },
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(20),
+        topRight: Radius.circular(20),
+      ),
+    ),
+  );
+}
+
+void openAboutAppDialog(BuildContext context) {
+  showBottomModalSheet(
+    context,
+    Text("About note here", style: TextStyle(fontSize: 16),),
+  );
+}
+
+void showPurposeDialog(BuildContext context) {
+  showBottomModalSheet(
+    context,
+    Text("Purpose note here", style: TextStyle(fontSize: 16),),
+  );
+}
+
+void showDeveloperDialog(BuildContext context) {
+  showBottomModalSheet(
+    context,
+    Text("Developer note here", style: TextStyle(fontSize: 16),),
+  );
 }
 
 class SettingsActivity extends StatelessWidget {
@@ -85,7 +125,9 @@ class SettingsActivity extends StatelessWidget {
                     "About",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    openAboutAppDialog(context);
+                  },
                 ),
                 HorizontalSpacer(),
                 OutlineButton(
@@ -93,7 +135,9 @@ class SettingsActivity extends StatelessWidget {
                     "Purpose",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    showPurposeDialog(context);
+                  },
                 ),
                 HorizontalSpacer(),
                 OutlineButton(
@@ -101,7 +145,9 @@ class SettingsActivity extends StatelessWidget {
                     "The Developer",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    showDeveloperDialog(context);
+                  },
                 )
               ],
             ),

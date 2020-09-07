@@ -13,6 +13,7 @@ dependencies:
   flutter_svg: 0.18.1
   bottom_navy_bar: 5.5.0
   rxdart:
+  modal_bottom_sheet: 0.2.0+1
 
 dev_dependencies:
   flutter_test:
