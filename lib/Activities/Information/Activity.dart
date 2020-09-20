@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ittjeenotes/Activities/Information/News/Activity.dart';
 import 'package:ittjeenotes/Services/Information.dart';
 import 'package:ittjeenotes/Widgets/UserIcon.dart';
 
@@ -60,6 +61,8 @@ class InformationActivity extends StatelessWidget {
                           title: Text(
                             currentNews.title,
                             style: TextStyle(fontWeight: FontWeight.bold),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
                           subtitle: Text(
                             currentNews.shortContent,
@@ -70,7 +73,16 @@ class InformationActivity extends StatelessWidget {
                             width: 35,
                           ),
                           contentPadding: EdgeInsets.all(0),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                builder: (context) {
+                                  return NewsActivity(currentNews: currentNews);
+                                },
+                              ),
+                            );
+                          },
                         );
                       }).toList(),
                     );
