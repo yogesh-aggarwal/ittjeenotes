@@ -7,6 +7,7 @@ import 'package:ittjeenotes/Activities/Study/Activity.dart';
 import 'package:ittjeenotes/Activities/Practice/Activity.dart';
 import 'package:ittjeenotes/Activities/Settings/Activity.dart';
 import 'package:ittjeenotes/Services/Constants.dart';
+import 'package:ittjeenotes/Services/Tools.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +41,7 @@ class _MainState extends State<Main> {
 
   @override
   void initState() {
-    Data.prepareData();
+    prepareData();
     super.initState();
   }
 
@@ -78,37 +79,37 @@ class _MainState extends State<Main> {
           BottomNavyBarItem(
             icon: Icon(Icons.book),
             title: Text("Study"),
-            activeColor: Constants.getBottomNavbarItemActiveColor(context),
+            activeColor: getBottomNavbarItemActiveColor(context),
             textAlign: TextAlign.center,
-            inactiveColor: Constants.bottomNavbarItemInactiveColor,
+            inactiveColor: bottomNavbarItemInactiveColor,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.edit),
             title: Text("Practice"),
-            activeColor: Constants.getBottomNavbarItemActiveColor(context),
+            activeColor: getBottomNavbarItemActiveColor(context),
             textAlign: TextAlign.center,
-            inactiveColor: Constants.bottomNavbarItemInactiveColor,
+            inactiveColor: bottomNavbarItemInactiveColor,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.home),
             title: Text("Home"),
-            activeColor: Constants.getBottomNavbarItemActiveColor(context),
+            activeColor: getBottomNavbarItemActiveColor(context),
             textAlign: TextAlign.center,
-            inactiveColor: Constants.bottomNavbarItemInactiveColor,
+            inactiveColor: bottomNavbarItemInactiveColor,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.info),
-            title: Text("Information"),
-            activeColor: Constants.getBottomNavbarItemActiveColor(context),
+            title: Text("Information.dart"),
+            activeColor: getBottomNavbarItemActiveColor(context),
             textAlign: TextAlign.center,
-            inactiveColor: Constants.bottomNavbarItemInactiveColor,
+            inactiveColor: bottomNavbarItemInactiveColor,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.settings),
             title: Text("Settings"),
-            activeColor: Constants.getBottomNavbarItemActiveColor(context),
+            activeColor: getBottomNavbarItemActiveColor(context),
             textAlign: TextAlign.center,
-            inactiveColor: Constants.bottomNavbarItemInactiveColor,
+            inactiveColor: bottomNavbarItemInactiveColor,
           ),
         ],
       ),

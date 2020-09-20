@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ittjeenotes/Activities/Settings/ToolsService.dart';
+import 'package:ittjeenotes/Services/Information.dart';
 import 'package:ittjeenotes/Widgets/UserIcon.dart';
 
 class InformationActivity extends StatelessWidget {
@@ -46,7 +46,7 @@ class InformationActivity extends StatelessWidget {
             ),
             StreamBuilder(
               initialData: [],
-              stream: getNews(),
+              stream: news.stream,
               builder:
                   (BuildContext context, AsyncSnapshot<List<dynamic>> data) {
                 if (data.hasData) {
@@ -62,7 +62,7 @@ class InformationActivity extends StatelessWidget {
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           subtitle: Text(
-                            currentNews.content,
+                            currentNews.shortContent,
                             overflow: TextOverflow.ellipsis,
                           ),
                           leading: SvgPicture.asset(

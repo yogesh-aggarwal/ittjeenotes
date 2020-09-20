@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
-import 'package:ittjeenotes/Services/Constants.dart';
+import 'package:ittjeenotes/Services/Home.dart';
 
 class Quote extends StatelessWidget {
   @override
@@ -13,7 +13,7 @@ class Quote extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: StreamBuilder(
-            stream: Data.quote.stream,
+            stream: quote.stream,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 final Map<String, dynamic> data = snapshot.data;
