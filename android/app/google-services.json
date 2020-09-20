@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "948600096759",
+    "firebase_url": "https://iit-jee-notes.firebaseio.com",
+    "project_id": "iit-jee-notes",
+    "storage_bucket": "iit-jee-notes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:948600096759:android:9c9f506a63edce729690f2",
+        "android_client_info": {
+          "package_name": "com.ittjeenotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "948600096759-33ogc9cme5pup57demgv1tntpsiqcscs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ittjeenotes",
+            "certificate_hash": "8b86776fed8e2c49a158a7cad107de1c48d8bf60"
+          }
+        },
+        {
+          "client_id": "948600096759-e9hi985jri58brmt05l9ou79g5t195n3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXGddqO76zXkkzTwNx5LI1uRLBC3Tut6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "948600096759-e9hi985jri58brmt05l9ou79g5t195n3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
