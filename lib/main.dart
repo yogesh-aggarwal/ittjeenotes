@@ -1,4 +1,5 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:ittjeenotes/Activities/Home/Activity.dart';
 import 'package:ittjeenotes/Activities/Information/Activity.dart';
@@ -7,7 +8,9 @@ import 'package:ittjeenotes/Activities/Practice/Activity.dart';
 import 'package:ittjeenotes/Activities/Settings/Activity.dart';
 import 'package:ittjeenotes/Services/Constants.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(App());
 }
 
@@ -34,6 +37,12 @@ class Main extends StatefulWidget {
 class _MainState extends State<Main> {
   int _currentPageIndex = 2;
   PageController _pageController = PageController(initialPage: 2);
+
+  @override
+  void initState() {
+    Data.prepareData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,37 +78,37 @@ class _MainState extends State<Main> {
           BottomNavyBarItem(
             icon: Icon(Icons.book),
             title: Text("Study"),
-            activeColor: Data.getBottomNavbarItemActiveColor(context),
+            activeColor: Constants.getBottomNavbarItemActiveColor(context),
             textAlign: TextAlign.center,
-            inactiveColor: Data.bottomNavbarItemInactiveColor,
+            inactiveColor: Constants.bottomNavbarItemInactiveColor,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.edit),
             title: Text("Practice"),
-            activeColor: Data.getBottomNavbarItemActiveColor(context),
+            activeColor: Constants.getBottomNavbarItemActiveColor(context),
             textAlign: TextAlign.center,
-            inactiveColor: Data.bottomNavbarItemInactiveColor,
+            inactiveColor: Constants.bottomNavbarItemInactiveColor,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.home),
             title: Text("Home"),
-            activeColor: Data.getBottomNavbarItemActiveColor(context),
+            activeColor: Constants.getBottomNavbarItemActiveColor(context),
             textAlign: TextAlign.center,
-            inactiveColor: Data.bottomNavbarItemInactiveColor,
+            inactiveColor: Constants.bottomNavbarItemInactiveColor,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.info),
             title: Text("Information"),
-            activeColor: Data.getBottomNavbarItemActiveColor(context),
+            activeColor: Constants.getBottomNavbarItemActiveColor(context),
             textAlign: TextAlign.center,
-            inactiveColor: Data.bottomNavbarItemInactiveColor,
+            inactiveColor: Constants.bottomNavbarItemInactiveColor,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.settings),
             title: Text("Settings"),
-            activeColor: Data.getBottomNavbarItemActiveColor(context),
+            activeColor: Constants.getBottomNavbarItemActiveColor(context),
             textAlign: TextAlign.center,
-            inactiveColor: Data.bottomNavbarItemInactiveColor,
+            inactiveColor: Constants.bottomNavbarItemInactiveColor,
           ),
         ],
       ),
