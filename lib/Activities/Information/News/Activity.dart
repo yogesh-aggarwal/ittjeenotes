@@ -1,6 +1,6 @@
 import 'package:contentful_rich_text/contentful_rich_text.dart';
 import 'package:flutter/material.dart';
-import 'package:ittjeenotes/Services/Information.dart';
+import 'package:ittjeenotes/Services/Tools.dart';
 import 'package:ittjeenotes/Services/Types/Information.dart';
 
 class NewsActivity extends StatelessWidget {
@@ -16,12 +16,23 @@ class NewsActivity extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 25, horizontal: 25),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  currentNews.title,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                Container(
+                  margin: EdgeInsets.only(bottom: 15),
+                  child: Text(
+                    currentNews.title,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
                 ),
-                // ContentfulRichText(currentNews.content).documentToWidgetTree,
+                Container(
+                  margin: EdgeInsets.only(bottom: 25),
+                  child: Text(
+                    timeStampToDate(currentNews.datePublished),
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                ContentfulRichText(currentNews.content).documentToWidgetTree,
               ],
             ),
           ),
