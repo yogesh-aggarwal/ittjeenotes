@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:ittjeenotes/Services/Constants.dart';
 import 'package:ittjeenotes/Widgets/UserIcon.dart';
 
 class PracticeActivity extends StatelessWidget {
@@ -34,6 +35,7 @@ class PracticeActivity extends StatelessWidget {
                 if (snapshot.hasData) {
                   return Markdown(
                     data: snapshot.data,
+                    styleSheet: mdStyleSheet,
                   );
                 }
 
