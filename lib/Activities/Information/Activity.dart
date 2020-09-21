@@ -72,7 +72,7 @@ class InformationActivity extends StatelessWidget {
                             "assets/icons/news.svg",
                             width: 35,
                           ),
-                          contentPadding: EdgeInsets.all(0),
+                          contentPadding: EdgeInsets.symmetric(horizontal: 10),
                           onTap: () {
                             Navigator.push(
                               context,
@@ -116,7 +116,7 @@ class InformationActivity extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50),
                 child: Image.asset("assets/icons/jeeMainLogo.jpg", width: 30),
               ),
-              contentPadding: EdgeInsets.all(0),
+              contentPadding: EdgeInsets.symmetric(horizontal: 10),
               onTap: () {},
             ),
             ListTile(
@@ -126,7 +126,7 @@ class InformationActivity extends StatelessWidget {
                 child:
                     Image.asset("assets/icons/jeeAdvancedLogo.jpg", width: 35),
               ),
-              contentPadding: EdgeInsets.all(0),
+              contentPadding: EdgeInsets.symmetric(horizontal: 10),
               onTap: () {},
             ),
           ],

@@ -1,4 +1,4 @@
-import 'package:contentful_rich_text/contentful_rich_text.dart';
+// import 'package:contentful_rich_text/contentful_rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:ittjeenotes/Services/Tools.dart';
 import 'package:ittjeenotes/Services/Types/Information.dart';
@@ -32,7 +32,7 @@ class NewsActivity extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
-                ContentfulRichText(currentNews.content).documentToWidgetTree,
+                // ContentfulRichText(currentNews.content).documentToWidgetTree,
               ],
             ),
           ),

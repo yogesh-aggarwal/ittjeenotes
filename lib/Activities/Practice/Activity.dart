@@ -1,41 +1,17 @@
-import 'package:contentful_rich_text/contentful_rich_text.dart';
 import "package:flutter/material.dart";
+import 'package:flutter/services.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:ittjeenotes/Widgets/UserIcon.dart';
 
 class PracticeActivity extends StatelessWidget {
-  final content = {
-    "nodeType": "document",
-    "content": [
-      {
-        "nodeType": "paragraph",
-        "content": [
-          {
-            "nodeType": "text",
-            "value": "Hello",
-            "marks": [
-              {"type": "bold"}
-            ],
-          },
-          {
-            "nodeType": "text",
-            "value": " world!",
-            "marks": [
-              {"type": "italic"}
-            ]
-          }
-        ]
-      }
-    ]
-  };
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            padding: EdgeInsets.only(top: 15, right: 25, left: 25),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,7 +26,23 @@ class PracticeActivity extends StatelessWidget {
               ],
             ),
           ),
-          ContentfulRichText(content).documentToWidgetTree,
+          Expanded(
+            child: FutureBuilder(
+              future:
+                  rootBundle.loadString("assets/notes/physics/motion-in-1d.md"),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Markdown(
+                    data: snapshot.data,
+                  );
+                }
+
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
