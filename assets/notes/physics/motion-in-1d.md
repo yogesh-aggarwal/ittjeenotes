@@ -4,4 +4,4 @@ Normally motion happens in **3-D** but in this chapter we study the motion in 1-
 dsd
 
 **Q2: A projectile motion is happening**
-[ds](https://i.imgur.com/qtkRT04.jpg)
+![ds](https://i.imgur.com/qtkRT04.jpg)

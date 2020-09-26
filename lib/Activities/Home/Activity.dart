@@ -25,14 +25,24 @@ class HomeActivity extends StatelessWidget {
               ],
             ),
           ),
-          Quote(),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 10),
-            child: Text(
-              "Continue Where You Left Off",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Quote(),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    child: Text(
+                      "Continue Where You Left Off",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
+          )
         ],
       ),
     );

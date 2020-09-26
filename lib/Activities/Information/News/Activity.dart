@@ -18,12 +18,30 @@ class NewsActivity extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  margin: EdgeInsets.only(bottom: 15),
-                  child: Text(
-                    currentNews.title,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width - 100,
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 15),
+                        child: Text(
+                          currentNews.title,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 28,
+                          ),
+                          overflow: TextOverflow.clip,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.arrow_back),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    )
+                  ],
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 25),

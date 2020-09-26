@@ -38,7 +38,6 @@ class PracticeActivity extends StatelessWidget {
                     styleSheet: mdStyleSheet,
                   );
                 }
-
                 return Center(
                   child: CircularProgressIndicator(),
                 );
