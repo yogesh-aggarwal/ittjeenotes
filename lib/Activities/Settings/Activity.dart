@@ -118,38 +118,41 @@ class SettingsActivity extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.only(top: 10),
-            child: Row(
-              children: [
-                OutlineButton(
-                  child: Text(
-                    "About",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  OutlineButton(
+                    child: Text(
+                      "About",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    onPressed: () {
+                      openAboutAppDialog(context);
+                    },
                   ),
-                  onPressed: () {
-                    openAboutAppDialog(context);
-                  },
-                ),
-                HorizontalSpacer(),
-                OutlineButton(
-                  child: Text(
-                    "Purpose",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  HorizontalSpacer(),
+                  OutlineButton(
+                    child: Text(
+                      "Purpose",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    onPressed: () {
+                      showPurposeDialog(context);
+                    },
                   ),
-                  onPressed: () {
-                    showPurposeDialog(context);
-                  },
-                ),
-                HorizontalSpacer(),
-                OutlineButton(
-                  child: Text(
-                    "The Developer",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  onPressed: () {
-                    showDeveloperDialog(context);
-                  },
-                )
-              ],
+                  HorizontalSpacer(),
+                  OutlineButton(
+                    child: Text(
+                      "The Developer",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    onPressed: () {
+                      showDeveloperDialog(context);
+                    },
+                  )
+                ],
+              ),
             ),
           )
         ],
