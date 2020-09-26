@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
+import 'package:ittjeenotes/Activities/Study/Subject/Activity.dart';
+import 'package:ittjeenotes/Services/Study.dart';
 import 'package:ittjeenotes/Widgets/UserIcon.dart';
 
 class SubjectCard extends StatelessWidget {
@@ -98,19 +100,46 @@ class StudyActivity extends StatelessWidget {
                   title: "Physics",
                   imageLink: "https://bit.ly/358XW21",
                   nChapters: 35,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(CupertinoPageRoute(
+                      builder: (context) {
+                        return SubjectActivity(
+                          title: "Physics",
+                          subject: physicsChapters,
+                        );
+                      },
+                    ));
+                  },
                 ),
                 SubjectCard(
                   title: "Chemistry",
                   imageLink: "https://bit.ly/358XW21",
                   nChapters: 35,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(CupertinoPageRoute(
+                      builder: (context) {
+                        return SubjectActivity(
+                          title: "Chemistry",
+                          subject: chemistryChapters,
+                        );
+                      },
+                    ));
+                  },
                 ),
                 SubjectCard(
                   title: "Maths",
                   imageLink: "https://bit.ly/358XW21",
                   nChapters: 35,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(CupertinoPageRoute(
+                      builder: (context) {
+                        return SubjectActivity(
+                          title: "Maths",
+                          subject: mathsChapters,
+                        );
+                      },
+                    ));
+                  },
                 ),
               ],
             ),
