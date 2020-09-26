@@ -5,5 +5,9 @@ class SubjectChapter {
   final String name;
   final String icon;
 
-  SubjectChapter({@required this.id, @required this.name, @required this.icon});
+  SubjectChapter({
+    @required this.id,
+    @required this.name,
+    @required this.icon,
+  });
 }

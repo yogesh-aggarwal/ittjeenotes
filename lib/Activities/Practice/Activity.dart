@@ -1,7 +1,4 @@
 import "package:flutter/material.dart";
-import 'package:flutter/services.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:ittjeenotes/Services/Constants.dart';
 import 'package:ittjeenotes/Widgets/UserIcon.dart';
 
 class PracticeActivity extends StatelessWidget {
@@ -25,23 +22,6 @@ class PracticeActivity extends StatelessWidget {
                 ),
                 UserIcon(),
               ],
-            ),
-          ),
-          Expanded(
-            child: FutureBuilder(
-              future:
-                  rootBundle.loadString("assets/notes/physics/motion-in-1d.md"),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return Markdown(
-                    data: snapshot.data,
-                    styleSheet: mdStyleSheet,
-                  );
-                }
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
-              },
             ),
           ),
         ],

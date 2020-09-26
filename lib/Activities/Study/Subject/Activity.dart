@@ -75,6 +75,7 @@ class SubjectActivity extends StatelessWidget {
                                           return ChapterActivity(
                                             chapter: currentChapters.values
                                                 .elementAt(index),
+                                            subject: title,
                                           );
                                         },
                                       ),
