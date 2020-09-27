@@ -17,7 +17,7 @@ class HomeActivity extends StatelessWidget {
               children: [
                 Container(
                   child: Text(
-                    "IIT JEE",
+                    "IIT-JEE",
                     style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800),
                   ),
                 ),
@@ -35,8 +35,10 @@ class HomeActivity extends StatelessWidget {
                     margin: EdgeInsets.symmetric(vertical: 10),
                     child: Text(
                       "Continue Where You Left Off",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
                     ),
                   ),
                 ],

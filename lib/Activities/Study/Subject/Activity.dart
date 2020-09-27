@@ -61,7 +61,8 @@ class SubjectActivity extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w500),
                             ),
-                            Container(margin: EdgeInsets.symmetric(vertical: 5)),
+                            Container(
+                                margin: EdgeInsets.symmetric(vertical: 5)),
                             ListView.builder(
                               physics: NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
@@ -82,9 +83,7 @@ class SubjectActivity extends StatelessWidget {
                                     );
                                   },
                                   title: Text(
-                                    currentChapters.values
-                                        .elementAt(index)
-                                        .name,
+                                    "${index + 1}. ${currentChapters.values.elementAt(index).name}",
                                   ),
                                 );
                               },
