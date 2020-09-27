@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import 'package:ittjeenotes/Services/Settings.dart';
+import 'package:ittjeenotes/Services/sqlite.dart';
 import 'package:ittjeenotes/Widgets/UserIcon.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
@@ -60,6 +62,18 @@ void showDeveloperDialog(BuildContext context) {
 }
 
 class SettingsActivity extends StatelessWidget {
+  toggleSettingValue({
+    @required Map<String, bool> preference,
+    @required String id,
+    @required bool value,
+  }) async {
+    preference[id] = value;
+    preferences.add(preference);
+    await settingDatabase.execute(
+      "UPDATE settings SET value='${value.toString()}' WHERE id='$id'",
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -84,92 +98,108 @@ class SettingsActivity extends StatelessWidget {
           ),
           Expanded(
             child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(margin: EdgeInsets.symmetric(vertical: 5)),
-                  Text(
-                    "General",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  CheckboxListTile(
-                    value: true,
-                    onChanged: (bool value) {},
-                    title: Text("Show Quote on Home"),
-                    controlAffinity: ListTileControlAffinity.leading,
-                    contentPadding: EdgeInsets.all(0),
-                    subtitle: Text("Shows a power quote on home screen"),
-                  ),
-                  Divider(
-                    height: 30,
-                  ),
-                  Text(
-                    "Notifications",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  CheckboxListTile(
-                    value: true,
-                    onChanged: (bool value) {},
-                    title: Text("Help me study"),
-                    controlAffinity: ListTileControlAffinity.leading,
-                    contentPadding: EdgeInsets.all(0),
-                    subtitle: Text("Show reminders & suggestions"),
-                  ),
-                  CheckboxListTile(
-                    value: true,
-                    onChanged: (bool value) {},
-                    title: Text("News"),
-                    controlAffinity: ListTileControlAffinity.leading,
-                    contentPadding: EdgeInsets.all(0),
-                    subtitle: Text("Show latest new about JEE"),
-                  ),
-                  Divider(
-                    height: 30,
-                  ),
-                  Text(
-                    "About",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 10),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          OutlineButton(
-                            child: Text(
-                              "About",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            onPressed: () {
-                              openAboutAppDialog(context);
-                            },
-                          ),
-                          HorizontalSpacer(),
-                          OutlineButton(
-                            child: Text(
-                              "Purpose",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            onPressed: () {
-                              showPurposeDialog(context);
-                            },
-                          ),
-                          HorizontalSpacer(),
-                          OutlineButton(
-                            child: Text(
-                              "The Developer",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            onPressed: () {
-                              showDeveloperDialog(context);
-                            },
-                          )
-                        ],
+              child: StreamBuilder(
+                initialData: preferences.value,
+                stream: preferences.stream,
+                builder: (context, snapshot) {
+                  Map<String, bool> preference = snapshot.data;
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(margin: EdgeInsets.symmetric(vertical: 5)),
+                      Text(
+                        "General",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
-                    ),
-                  )
-                ],
+                      CheckboxListTile(
+                        value: preference["showQuote"],
+                        onChanged: (bool value) async {
+                          toggleSettingValue(preference: preference, id: "showQuote", value: value);
+                        },
+                        title: Text("Show Quote on Home"),
+                        controlAffinity: ListTileControlAffinity.leading,
+                        contentPadding: EdgeInsets.all(0),
+                        subtitle: Text("Shows a power quote on home screen"),
+                      ),
+                      Divider(
+                        height: 30,
+                      ),
+                      Text(
+                        "Notifications",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      CheckboxListTile(
+                        value: preference["helpStudy"],
+                        onChanged: (bool value) async {
+                          toggleSettingValue(preference: preference, id: "helpStudy", value: value);
+                        },
+                        title: Text("Help me study"),
+                        controlAffinity: ListTileControlAffinity.leading,
+                        contentPadding: EdgeInsets.all(0),
+                        subtitle: Text("Show reminders & suggestions"),
+                      ),
+                      CheckboxListTile(
+                        value: preference["showNews"],
+                        onChanged: (bool value) async {
+                          toggleSettingValue(preference: preference, id: "showNews", value: value);
+                        },
+                        title: Text("News"),
+                        controlAffinity: ListTileControlAffinity.leading,
+                        contentPadding: EdgeInsets.all(0),
+                        subtitle: Text("Show latest new about JEE"),
+                      ),
+                      Divider(
+                        height: 30,
+                      ),
+                      Text(
+                        "About",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 10),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              OutlineButton(
+                                child: Text(
+                                  "About",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                onPressed: () {
+                                  openAboutAppDialog(context);
+                                },
+                              ),
+                              HorizontalSpacer(),
+                              OutlineButton(
+                                child: Text(
+                                  "Purpose",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                onPressed: () {
+                                  showPurposeDialog(context);
+                                },
+                              ),
+                              HorizontalSpacer(),
+                              OutlineButton(
+                                child: Text(
+                                  "The Developer",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                onPressed: () {
+                                  showDeveloperDialog(context);
+                                },
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  );
+                },
               ),
             ),
           )

@@ -47,6 +47,7 @@ class _MainState extends State<Main> {
 
   @override
   Widget build(BuildContext context) {
+    prepareData();
     return Scaffold(
       body: SafeArea(
         child: PageView(
